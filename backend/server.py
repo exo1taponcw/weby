@@ -113,12 +113,12 @@ async def get_website_status(website: str):
         logging.error(f"Error getting status for {website}: {e}")
         raise HTTPException(status_code=500, detail="Failed to get website status")
 
-@api_router.get("/status/uptime", response_model=UptimeResponse)
+@api_router.get("/status/uptime")
 async def get_uptime_data():
     """Get 24-hour uptime data for visualization"""
     try:
         uptime_data = await website_monitor.calculate_uptime_history()
-        return UptimeResponse(uptime=uptime_data)
+        return {"uptime": uptime_data}
     except Exception as e:
         logging.error(f"Error getting uptime data: {e}")
         raise HTTPException(status_code=500, detail="Failed to get uptime data")
