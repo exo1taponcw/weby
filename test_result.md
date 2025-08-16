@@ -191,13 +191,19 @@ frontend:
     implemented: true
     working: true
     file: "/app/frontend/src/components/ResourceMonitor.js, /app/frontend/src/services/api.js"
-    stuck_count: 0
+    stuck_count: 1
     priority: "high"
     needs_retesting: true
     status_history:
       - working: true
         agent: "main"
         comment: "Connected to backend API for real-time monitoring of 3 websites, uptime charts, response times, and service status"
+      - working: false
+        agent: "user"
+        comment: "Runtime error: _data$lastChecked.toLocaleTimeString is not a function - lastChecked is coming as string from API, not Date object"
+      - working: true
+        agent: "main"
+        comment: "Fixed date parsing issue by converting ISO date string to Date object before calling toLocaleTimeString()"
 
   - task: "Background Music Player"
     implemented: true
