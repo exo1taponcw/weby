@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Activity, Globe, CheckCircle, AlertCircle, Clock, Wifi } from 'lucide-react';
+import { websiteStatusApi } from '../services/api';
 
 const ResourceMonitor = () => {
   const [websiteStatus, setWebsiteStatus] = useState({
