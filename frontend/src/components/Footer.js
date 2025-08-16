@@ -19,7 +19,10 @@ const Footer = () => {
               <div className="flex items-center gap-2 text-sm text-[var(--text-muted)]">
                 <span>Made with</span>
                 <Heart className="w-4 h-4 text-red-500 fill-current" />
-                <span>for developers</span>
+                <span>and lots of coffee</span>
+                <span>☕</span>
+                <span>by exo1tap</span>
+                <span className="text-red-500">❤️</span>
               </div>
             </div>
 
