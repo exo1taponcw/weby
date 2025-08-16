@@ -2,7 +2,7 @@ import asyncio
 import aiohttp
 import time
 from datetime import datetime, timedelta
-from typing import Dict, Tuple
+from typing import Dict, Tuple, List
 import logging
 from motor.motor_asyncio import AsyncIOMotorDatabase
 from models import WebsiteStatus, UptimeHistory
