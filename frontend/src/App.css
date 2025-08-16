@@ -299,6 +299,55 @@ body {
   .display-large {
     font-size: 36px;
   }
+  
+  .display-medium {
+    font-size: 24px;
+  }
+  
+  .heading-1 {
+    font-size: 24px;
+  }
+  
+  .heading-2 {
+    font-size: 20px;
+  }
+  
+  /* Mobile-specific plan cards */
+  .plan-card {
+    padding: 20px;
+  }
+  
+  /* Mobile hero section adjustments */
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  /* Mobile features grid */
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* Mobile status monitor */
+  .status-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  /* Floating sidebar mobile adjustments */
+  .floating-sidebar {
+    bottom: 80px;  
+    right: 10px;
+  }
+  
+  /* Background music player mobile */
+  .music-player-mobile {
+    bottom: 10px;
+    right: 10px;
+    width: 14px;
+    height: 14px;
+  }
 }
 
 @media (min-width: 768px) and (max-width: 1199px) {
