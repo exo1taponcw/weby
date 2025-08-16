@@ -9,35 +9,36 @@ const ResourceMonitor = () => {
     'pm.loyalhood.xyz': { status: 'checking', responseTime: 0, lastChecked: null }
   });
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [uptimeData, setUptimeData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [overallStatus, setOverallStatus] = useState('checking');
 
-  // Mock website status checking (will be replaced with backend calls)
+  // Fetch website status from backend
   useEffect(() => {
-    const checkWebsiteStatus = () => {
-      const websites = ['loyalhood.xyz', 'host.loyalhood.xyz', 'pm.loyalhood.xyz'];
-      
-      websites.forEach(website => {
-        // Simulate API call - will be replaced with actual backend call
-        setTimeout(() => {
-          const mockStatus = Math.random() > 0.1 ? 'online' : 'offline'; // 90% uptime simulation
-          const mockResponseTime = Math.floor(Math.random() * 200) + 50; // 50-250ms
-          
-          setWebsiteStatus(prev => ({
-            ...prev,
-            [website]: {
-              status: mockStatus,
-              responseTime: mockResponseTime,
-              lastChecked: new Date()
-            }
-          }));
-        }, Math.random() * 2000); // Stagger the checks
-      });
+    const fetchWebsiteStatus = async () => {
+      try {
+        setIsLoading(true);
+        const response = await websiteStatusApi.getAllStatus();
+        setWebsiteStatus(response.websites);
+        setOverallStatus(response.overall);
+        
+        // Also fetch uptime data
+        const uptimeResponse = await websiteStatusApi.getUptimeData();
+        setUptimeData(uptimeResponse.uptime);
+        
+      } catch (error) {
+        console.error('Failed to fetch website status:', error);
+        // Keep existing mock/default state on error
+      } finally {
+        setIsLoading(false);
+      }
     };
 
-    // Initial check
-    checkWebsiteStatus();
+    // Initial fetch
+    fetchWebsiteStatus();
 
-    // Check every 30 seconds
-    const interval = setInterval(checkWebsiteStatus, 30000);
+    // Fetch every 30 seconds
+    const interval = setInterval(fetchWebsiteStatus, 30000);
     
     // Update current time every second
     const timeInterval = setInterval(() => {
