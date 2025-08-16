@@ -6,6 +6,7 @@ import FeaturesSection from './FeaturesSection';
 import ResourceMonitor from './ResourceMonitor';
 import Footer from './Footer';
 import FloatingSidebar from './FloatingSidebar';
+import BackgroundMusicPlayer from './BackgroundMusicPlayer';
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
       <ResourceMonitor />
       <Footer />
       <FloatingSidebar />
+      <BackgroundMusicPlayer />
     </div>
   );
 };

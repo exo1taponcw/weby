@@ -39,7 +39,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a href="#status" className="body-medium text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors">
-                    Performance Monitoring
+                    Status Monitoring
                   </a>
                 </li>
                 <li>
@@ -56,28 +56,40 @@ const Footer = () => {
               <ul className="space-y-2">
                 <li>
                   <a 
-                    href="https://status.loyalhood.xyz" 
+                    href="https://loyalhood.xyz" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="body-medium text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors flex items-center gap-2"
                   >
-                    Status Page
+                    Main Website
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://host.loyalhood.xyz" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="body-medium text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors flex items-center gap-2"
+                  >
+                    Host Portal
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="https://pm.loyalhood.xyz" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="body-medium text-[var(--text-secondary)] hover:text-[var(--brand-primary)] transition-colors flex items-center gap-2"
+                  >
+                    Proxmox Panel
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </li>
                 <li>
                   <span className="body-medium text-[var(--text-secondary)]">
                     Documentation (Coming Soon)
-                  </span>
-                </li>
-                <li>
-                  <span className="body-medium text-[var(--text-secondary)]">
-                    API Reference (Coming Soon)
-                  </span>
-                </li>
-                <li>
-                  <span className="body-medium text-[var(--text-secondary)]">
-                    Knowledge Base (Coming Soon)
                   </span>
                 </li>
               </ul>
