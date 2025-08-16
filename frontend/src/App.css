@@ -403,3 +403,72 @@ body {
   font-weight: 600;
   transform: rotate(45deg) translate(25%, -50%);
 }
+
+/* Easter Eggs CSS */
+.matrix-rain {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  width: 20px;
+  height: 100vh;
+  animation: matrix-fall linear infinite;
+  display: flex;
+  flex-direction: column;
+}
+
+.matrix-char {
+  color: #00FF00;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  text-shadow: 0 0 5px #00FF00;
+  opacity: 0;
+  animation: matrix-fade 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes matrix-fall {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+
+@keyframes matrix-fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Special hover effects for Easter eggs */
+.dark-logo:hover {
+  text-shadow: 0 0 10px var(--brand-primary);
+  transform: scale(1.05);
+  transition: all 0.3s ease;
+}
+
+/* Pulsing effect for interactive elements */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 255, 209, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(0, 255, 209, 0.6);
+  }
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

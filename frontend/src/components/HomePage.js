@@ -7,6 +7,7 @@ import ResourceMonitor from './ResourceMonitor';
 import Footer from './Footer';
 import FloatingSidebar from './FloatingSidebar';
 import BackgroundMusicPlayer from './BackgroundMusicPlayer';
+import EasterEggs from './EasterEggs';
 
 const HomePage = () => {
   return (
@@ -19,6 +20,7 @@ const HomePage = () => {
       <Footer />
       <FloatingSidebar />
       <BackgroundMusicPlayer />
+      <EasterEggs />
     </div>
   );
 };
