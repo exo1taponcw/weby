@@ -55,18 +55,29 @@ async def shutdown_event():
     client.close()
 
 # Website Status Monitoring Endpoints
-@api_router.get("/status/websites", response_model=WebsiteStatusOverview)
+@api_router.get("/status/websites")
 async def get_all_website_status():
     """Get current status of all monitored websites"""
     try:
-        websites = await website_monitor.get_latest_status()
-        overall = website_monitor.calculate_overall_status(websites)
+        websites_data = await website_monitor.get_latest_status()
+        overall = website_monitor.calculate_overall_status(websites_data)
         
-        return WebsiteStatusOverview(
-            websites=websites,
-            overall=overall,
-            lastUpdated=datetime.utcnow()
-        )
+        # Convert to proper response format
+        websites_response = {}
+        for website_name, data in websites_data.items():
+            websites_response[website_name] = {
+                "website": website_name,
+                "status": data["status"],
+                "responseTime": data["responseTime"],
+                "lastChecked": data["lastChecked"],
+                "statusCode": data["statusCode"]
+            }
+        
+        return {
+            "websites": websites_response,
+            "overall": overall,
+            "lastUpdated": datetime.utcnow()
+        }
     except Exception as e:
         logging.error(f"Error getting website status: {e}")
         raise HTTPException(status_code=500, detail="Failed to get website status")
