@@ -229,7 +229,7 @@ const ResourceMonitor = () => {
                     {data.status === 'online' && (
                       <div className="flex justify-between text-xs text-[var(--text-muted)]">
                         <span>Response Time: {data.responseTime}ms</span>
-                        <span>Last Checked: {data.lastChecked?.toLocaleTimeString()}</span>
+                        <span>Last Checked: {data.lastChecked ? new Date(data.lastChecked).toLocaleTimeString() : 'Never'}</span>
                       </div>
                     )}
                     
