@@ -72,11 +72,7 @@ const ResourceMonitor = () => {
   };
 
   const getOverallStatus = () => {
-    const statuses = Object.values(websiteStatus);
-    if (statuses.every(site => site.status === 'online')) return 'operational';
-    if (statuses.some(site => site.status === 'offline')) return 'degraded';
-    if (statuses.every(site => site.status === 'offline')) return 'outage';
-    return 'checking';
+    return overallStatus;
   };
 
   const getWebsiteDisplayName = (website) => {
