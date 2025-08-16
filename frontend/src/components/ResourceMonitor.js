@@ -165,11 +165,20 @@ const ResourceMonitor = () => {
                 </div>
               </div>
 
-              {/* Uptime Chart Placeholder */}
+              {/* Uptime Chart */}
               <div className="bg-[var(--bg-secondary)] border border-[var(--border-subtle)] p-6">
                 <h4 className="heading-3 mb-4">24-Hour Uptime</h4>
                 <div className="h-16 flex items-end justify-between gap-1">
-                  {[...Array(24)].map((_, index) => {
+                  {uptimeData.length > 0 ? uptimeData.map((hourData, index) => (
+                    <div key={index} className="flex-1 flex flex-col items-center">
+                      <div 
+                        className={`w-full transition-all duration-1000 ${
+                          hourData.percentage > 95 ? 'bg-green-500' : hourData.percentage > 80 ? 'bg-yellow-500' : 'bg-red-500'
+                        }`}
+                        style={{ height: `${hourData.percentage}%` }}
+                      ></div>
+                    </div>
+                  )) : [...Array(24)].map((_, index) => {
                     const uptime = Math.random() > 0.05 ? 100 : Math.random() * 50 + 50;
                     return (
                       <div key={index} className="flex-1 flex flex-col items-center">
